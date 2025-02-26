@@ -1,0 +1,59 @@
+.snackbar {
+  position: fixed; /* Fixa no lugar */
+  top: 1rem; /* Distância do topo */
+  right: 1rem; /* Distância da direita */
+  z-index: 9999; /* Para garantir que esteja acima de outros elementos */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  animation: slide-in 0.3s ease-in-out;
+  width: 400px;
+  margin: 0; /* Remove margens para evitar deslocamento */
+  color: #fff;
+
+  &.success {
+    background-color: #4caf50; // Verde para sucesso
+  }
+
+  &.error {
+    background-color: #f44336; // Vermelho para erro
+  }
+
+  .text {
+    flex-grow: 1;
+
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  i {
+    cursor: pointer;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    color: inherit;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// Animação de entrada
+@keyframes slide-in {
+  from {
+    transform: translateY(-100%); /* Começa fora da tela no topo */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,113 @@
+<section class="container-fluid mt-3 d-flex justify-content-center align-items-center pt-5">
+  <div class="row w-100 d-flex justify-content-center align-items-center">
+    <div class="input-box d-flex align-items-center col-lg-5">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="w-100">
+        <div class="d-flex w-100">
+          <select
+            class="form-select"
+            formControlName="prioridade"
+            style="flex: 1; border-bottom: solid 1px #BDC3C7; background-color: #FFFFFF; color: #34495E;"
+          >
+            <option value="">Selecione a prioridade</option>
+            <option [value]="PRIORIDADE.ALTA" style="background-color: red; color: #FFFFFF;">Alta</option>
+            <option [value]="PRIORIDADE.MEDIA" class="bg-warning" style="color: #34495E;">Média</option>
+            <option [value]="PRIORIDADE.BAIXA" class="bg-success" style="color: #FFFFFF;">Baixa</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Digite aqui a sua tarefa"
+            class="form-control ms-2"
+            formControlName="descricao"
+            style="flex: 2; border-bottom: solid 1px #BDC3C7; background-color: #FFFFFF; color: #34495E;"
+          />
+          <button
+            type="submit"
+            class="ms-2"
+            [disabled]="!form.valid"
+            style="flex: 0; border: none; background: transparent;"
+          >
+            <i class="fa fa-plus primary" style="color: #3498DB;"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid mt-3 list-tarefas">
+  <table class="table" style="background-color: #FFFFFF; border-radius: 5px;">
+    <thead class="table-primary">
+      <tr>
+        <th style="max-width: 10%;">Número da Tarefa</th>
+        <th style="max-width: 50%;">Tarefa</th>
+        <th style="max-width: 5%;">Prioridade</th>
+        <th style="max-width: 10%;">Ver Detalhes</th>
+        <th style="max-width: 10%;">Começar</th>
+        <th style="max-width: 10%;">Concluir</th>
+        <th style="max-width: 10%;">Arquivar</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let categoria of ['alta', 'media', 'baixa']; let catIndex = index">
+      <ng-container *ngFor="let tarefa of tarefas[categoria]">
+        <tr
+          class="list-tarefas"
+          [ngClass]="{
+            'list-alta': tarefa.prioridade === PRIORIDADE.ALTA,
+            'list-media': tarefa.prioridade === PRIORIDADE.MEDIA,
+            'list-baixa': tarefa.prioridade === PRIORIDADE.BAIXA
+          }"
+          style="border-bottom: solid 1px #BDC3C7;"
+        >
+          <!-- Coluna Code System -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            {{ tarefa.codeSystem }}
+          </td>
+          <!-- Coluna Nome da Tarefa -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            <input
+              type="text"
+              class="form-control"
+              disabled
+              value="{{ tarefa.nomeTarefa }}"
+              style="color: #2C3E50; background-color: #F4F6F8;"
+            />
+          </td>
+          <!-- Coluna Prioridade -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            <input
+              type="text"
+              class="form-control"
+              disabled
+              value="{{ valuePrioridade(tarefa.prioridade) }}"
+              style="color: #2C3E50; background-color: #F4F6F8;"
+            />
+          </td>
+          <!-- Coluna Visualizar -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            <button class="btn-sm" (click)="seeTarefa(tarefa.id)" title="Visualizar tarefa">
+              <i class="fa fa-eye" style="color: #3498DB;"></i>
+            </button>
+          </td>
+          <!-- Coluna Iniciar -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            <button class="btn-sm" title="Iniciar tarefa" (click)="comecarTarefa(tarefa)">
+              <i class="fa fa-play" style="color: #3498DB;"></i>
+            </button>
+          </td>
+          <!-- Coluna Concluir -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            <button class="btn-sm" title="Concluir tarefa" (click)="concluirTarefa(tarefa)">
+              <i class="fa fa-check" style="color: #27AE60;"></i>
+            </button>
+          </td>
+          <!-- Coluna Excluir -->
+          <td [ngClass]="statusClasses(tarefa.status)">
+            <button class="btn-sm" (click)="removerTarefa(tarefa)" title="Excluir tarefa">
+              <i class="fa fa-archive" style="color: #E74C3C;"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</section>

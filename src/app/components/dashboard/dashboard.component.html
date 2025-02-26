@@ -1,0 +1,225 @@
+<ng-container>
+  <section>
+    <div class="infos p-2 border rounded shadow-sm bg-light">
+      <p class="fw-bold text-info small mb-2">📌 Informações Gerais</p>
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <p class="mb-0">
+          <strong>Total de Tarefas:</strong>
+          {{ tarefasAndamento.length + tarefasPendente.length + tarefasConcluidas.length + tarefasArquivadas.length }}
+        </p>
+        <!-- <div *ngFor="let categoria of getCategorias()" class="categoria-card p-2 border rounded bg-white">
+          <p class="fw-bold text-primary small mb-1">{{ categoria }}</p>
+          <p class="mb-0">
+            <strong>Total:</strong> {{ getTarefasPorCategoria(categoria).length }}
+          </p>
+        </div> -->
+      </div>
+    </div>
+
+
+    <div class="container mt-2">
+      <div class="d-flex flex-wrap gap-2">
+        <div *ngIf="urgentes.length" class="card p-2 shadow-sm col-md-4">
+          <p class="fw-bold text-danger small mb-2">Urgentes</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm table-compact">
+              <thead class="table-light small">
+                <tr>
+                  <th>Cod</th>
+                  <th>Desc</th>
+                  <th>Período</th>
+                  <th>Categoria</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tarefa of urgentes">
+                  <td>{{ tarefa.codeSystem }}</td>
+                  <td>{{ tarefa.nomeTarefa }}</td>
+                  <td class="fw-bold">
+                    {{ tarefa.dataCreate }} - {{ tarefa.dataVencimento }}
+                  </td>
+                  <td>{{ tarefa.categoria }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div *ngIf="tarefasPendente.length" class="card p-2 shadow-sm col-md-4">
+          <p class="fw-bold text-danger-emphasis small mb-2">Tarefas Pendentes</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm table-compact">
+              <thead class="table-light small">
+                <tr>
+                  <th>Cod</th>
+                  <th>Desc</th>
+                  <th>Período</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tarefa of tarefasPendente">
+                  <td>{{ tarefa.codeSystem }}</td>
+                  <td>{{ tarefa.nomeTarefa }}</td>
+                  <td class="fw-bold">
+                    {{ tarefa.dataCreate }} - {{ tarefa.dataVencimento }}
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary btn-xs p-1"
+                      (click)="seeTarefa(tarefa.id)"
+                      title="Visualizar"
+                    >
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div *ngIf="tarefasVencendo.length" class="card p-2 shadow-sm col-md-4">
+          <p class="fw-bold text-warning small mb-2">Tarefas Vencendo</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm table-compact">
+              <thead class="table-light small">
+                <tr>
+                  <th>Cod</th>
+                  <th>Desc</th>
+                  <th>Período</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tarefa of tarefasVencendo">
+                  <td>{{ tarefa.codeSystem }}</td>
+                  <td>{{ tarefa.nomeTarefa }}</td>
+                  <td class="fw-bold">
+                    {{ tarefa.dataCreate }} - {{ tarefa.dataVencimento }}
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary btn-xs p-1"
+                      (click)="seeTarefa(tarefa.id)"
+                      title="Visualizar"
+                    >
+                      <i class="fa fa-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div
+          *ngIf="tarefasAndamento.length"
+          class="card p-2 shadow-sm col-md-4"
+        >
+          <p class="fw-bold text-primary small mb-2">Em andamento</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm table-compact">
+              <thead class="table-light small">
+                <tr>
+                  <th>Cod</th>
+                  <th>Desc</th>
+                  <th>Período</th>
+                  <th>Tempo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tarefa of tarefasAndamento">
+                  <td>{{ tarefa.codeSystem }}</td>
+                  <td>{{ tarefa.nomeTarefa }}</td>
+                  <td class="fw-bold">
+                    {{ tarefa.dataCreate }} - {{ tarefa.dataVencimento }}
+                  </td>
+                  <td>{{ getTime(tarefa) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div *ngIf="tarefasArquivadas.length" class="card p-2 shadow-sm col-md-4">
+          <p class="fw-bold text-info small mb-2">Tarefas Arquivadas</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm table-compact">
+              <thead class="table-light small">
+                <tr>
+                  <th>Cod</th>
+                  <th>Desc</th>
+                  <th>Período</th>
+                  <th>Desarquivar</th>
+                  <th>Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tarefa of tarefasArquivadas">
+                  <td>{{ tarefa.codeSystem }}</td>
+                  <td>{{ tarefa.nomeTarefa }}</td>
+                  <td class="fw-bold">
+                    {{ tarefa.dataCreate }} - {{ tarefa.dataVencimento }}
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary btn-xs p-1"
+                      (click)="desarquivar(tarefa)"
+                      title="Desarquivar"
+                    >
+                      <i class="fa fa-folder-open"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary btn-xs p-1"
+                      (click)="excluir(tarefa.id)"
+                      title="Excluir"
+                    >
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div *ngIf="tarefasConcluidas.length" class="card p-2 shadow-sm col-md-4">
+          <p class="fw-bold text-success small mb-2">Tarefas Concluidas</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm table-compact">
+              <thead class="table-light small">
+                <tr>
+                  <th>Cod</th>
+                  <th>Desc</th>
+                  <th>Período</th>
+                  <th>Arquivar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let tarefa of tarefasConcluidas">
+                  <td>{{ tarefa.codeSystem }}</td>
+                  <td>{{ tarefa.nomeTarefa }}</td>
+                  <td class="fw-bold">
+                    {{ tarefa.dataCreate }} - {{ tarefa.dataVencimento }}
+                  </td>
+                  <td>
+                    <button
+                      class="btn btn-outline-primary btn-xs p-1"
+                      (click)="arquivar(tarefa)"
+                      title="Arquivar"
+                    >
+                      <i class="fa fa-folder"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

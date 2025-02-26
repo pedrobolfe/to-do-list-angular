@@ -1,0 +1,69 @@
+// Definindo as variáveis para cores
+$background-color: #2C3E50;
+$text-color: #ECF0F1;
+$link-hover-color: #1ABC9C;
+$font-family: 'Montserrat', sans-serif;
+
+// Estilo global para o body
+body {
+  font-family: $font-family;
+}
+
+// Estilizando o navbar
+.navbar {
+  background-color: $background-color;
+  padding: 0.5rem 1rem;
+  z-index: 1050; // Para garantir que o navbar esteja sempre sobre outros elementos.
+
+  .navbar-brand {
+    font-family: $font-family;
+    color: $text-color;
+    font-weight: bold;
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    background-color: $text-color;
+    .navbar-toggler-icon {
+      background-color: $text-color;
+    }
+  }
+
+  .offcanvas {
+    width: 250px; // Ajustando a largura do menu lateral
+    background-color: $background-color;
+    color: $text-color;
+    .offcanvas-header {
+      .offcanvas-title {
+        font-family: $font-family;
+        color: $text-color;
+      }
+    }
+
+    .offcanvas-body {
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            color: $text-color;
+            transition: color 0.3s;
+
+            &:hover {
+              color: $link-hover-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Estilizando o botão "Sair"
+p {
+  color: $text-color;
+  i {
+    margin-right: 5px;
+  }
+}

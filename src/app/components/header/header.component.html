@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #2C3E50;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-family: 'Montserrat', sans-serif; color: #ECF0F1;">TO DO LIST</a>
+    <!-- Toggler Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="background-color: #ECF0F1;"></span>
+    </button>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-family: 'Montserrat', sans-serif;">To do List</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" (click)="goTo()" style="cursor: pointer;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="goToDashboard()" style="cursor: pointer;">DashBoard</a>
+          </li>
+        </ul>
+        <p> <i class="fas fa-sign-out-alt mt-2" style="cursor: pointer;"></i> Sair</p>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,191 @@
+{
+  "tarefas": [
+    {
+      "id": "1",
+      "codeSystem": 1,
+      "prioridade": 3,
+      "nomeTarefa": "Atividade de Ingles",
+      "status": 4,
+      "dataCreate": "25/11/2024",
+      "categoria": "Estudos de ingles",
+      "descricao": "verbos",
+      "tags": "Inglês,Prova em dupla",
+      "notas": "Revisar os verbos do passado",
+      "dataVencimento": "14/01/2025",
+      "urgente": true,
+      "repetir": "3",
+      "logs": [
+        {
+          "data": "25/11/2024",
+          "alteracao": "Criada"
+        },
+        {
+          "data": "26/11/2024",
+          "alteracao": "Iniciada"
+        }
+      ],
+      "anexos": {
+        "imgUrl": "",
+        "titulo": ""
+      },
+      "timeTracker": {
+        "dataIni": "27/01/2025",
+        "ultimoPlay": null,
+        "tempo": 31864,
+        "dataFim": "27/01/2025"
+      }
+    },
+    {
+      "id": "2",
+      "codeSystem": 2,
+      "prioridade": 2,
+      "nomeTarefa": "Trabalho Prog Web: TO DO LIST IFPR",
+      "status": 3,
+      "dataCreate": "16/01/2025",
+      "categoria": "Trabalho da faculdade",
+      "descricao": "Desenvolver a aplicação de To Do List para a disciplina de Programação Web.",
+      "tags": [
+        "Programação",
+        "Web",
+        "IFPR"
+      ],
+      "notas": "A tarefa deve ser concluída até a data de entrega final.",
+      "dataVencimento": "13/12/2024",
+      "urgente": true,
+      "historico": [
+        {
+          "data": "16/01/2025",
+          "alteracao": "Criada"
+        },
+        {
+          "data": "16/01/2025",
+          "alteracao": "Iniciada"
+        }
+      ],
+      "repetir": 4,
+      "anexos": {
+        "titulo": "testesfsd"
+      },
+      "timeTracker": {
+        "dataIni": "27/01/2025",
+        "ultimoPlay": null,
+        "tempo": 1932,
+        "dataFim": "27/01/2025"
+      }
+    },
+    {
+      "id": "Ltr5in5kgQcGsSWA3fFhmRk",
+      "nomeTarefa": "FAZER UMA NOTIFICACAO",
+      "prioridade": 2,
+      "codeSystem": 4,
+      "dataCreate": "18/01/2025",
+      "status": 4,
+      "categoria": "meu sistema",
+      "descricao": "fazer um snakbar para usar notificacao",
+      "tags": "notificacoes",
+      "notas": "",
+      "dataVencimento": "19/01/2025",
+      "urgente": true,
+      "repetir": 4,
+      "anexos": {
+        "titulo": ""
+      },
+      "timeTracker": {
+        "dataIni": "27/01/2025",
+        "ultimoPlay": null,
+        "tempo": 55937,
+        "dataFim": "27/01/2025"
+      }
+    },
+    {
+      "id": "1hvYzHUMIBChgjbxp7yhvlK",
+      "nomeTarefa": "Estilizar os componentes",
+      "prioridade": 2,
+      "codeSystem": 6,
+      "dataCreate": "27/01/2025",
+      "status": 2,
+      "timeTracker": {
+        "dataIni": "27/01/2025",
+        "ultimoPlay": 1738029094773,
+        "tempo": 0
+      },
+      "descricao": "",
+      "tags": "",
+      "notas": "",
+      "dataVencimento": "20/02/2025",
+      "urgente": false,
+      "repetir": "2",
+      "anexos": {
+        "titulo": ""
+      }
+    },
+    {
+      "id": "25OzIxoMJW1RguATD3CRvHl",
+      "nomeTarefa": "Criar um Dashboard",
+      "prioridade": 1,
+      "codeSystem": 7,
+      "dataCreate": "27/01/2025",
+      "status": 2,
+      "descricao": "Mais um componente com informações mais gerais das tarefas e alguns dados de tarefas finalizadas etc, tarefas perto do prazo...",
+      "tags": "",
+      "notas": "",
+      "dataVencimento": "20/02/2025",
+      "urgente": true,
+      "repetir": 4,
+      "anexos": {
+        "titulo": ""
+      },
+      "timeTracker": {
+        "dataIni": "02/02/2025",
+        "ultimoPlay": 1738528833360,
+        "tempo": 0
+      }
+    },
+    {
+      "id": "m9gGFFY7rBmBKF3tQMXbhie",
+      "nomeTarefa": "Add funcionalidades",
+      "prioridade": 3,
+      "codeSystem": 8,
+      "dataCreate": "27/01/2025",
+      "status": 1,
+      "descricao": "pausar tarefa",
+      "tags": "",
+      "notas": "",
+      "dataVencimento": "31/01/2025",
+      "urgente": false,
+      "repetir": 4,
+      "anexos": {
+        "titulo": ""
+      }
+    },
+    {
+      "id": "Wi4ABfgiAXTYNcOBCeXcOwx",
+      "nomeTarefa": "teste vencimento",
+      "prioridade": 3,
+      "codeSystem": 9,
+      "dataCreate": "02/02/2025",
+      "status": 4,
+      "descricao": "",
+      "tags": "",
+      "notas": "",
+      "dataVencimento": "04/02/2025",
+      "urgente": true,
+      "repetir": 4,
+      "anexos": {
+        "titulo": ""
+      }
+    }
+  ],
+  "categorias": [
+    {
+      "id": "m6oa552btnn052e",
+      "categoria": "Programação Web",
+      "arquivada": false
+    },
+    {
+      "id": "m6oalsdxkx08ji5",
+      "categoria": "Engenharia de Software",
+      "arquivada": false
+    }
+  ]
+}
